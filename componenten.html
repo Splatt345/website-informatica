@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Componenten - Computer Wereld</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">&lt;ComputerWereld/&gt;</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="componenten.html" class="nav-link active">Componenten</a></li>
+                    <li><a href="componenten/cpu.html" class="nav-link">Processor</a></li>
+                    <li><a href="componenten/gpu.html" class="nav-link">Videokaart</a></li>
+                    <li><a href="componenten/ram.html" class="nav-link">Geheugen</a></li>
+                    <li><a href="componenten/opslag.html" class="nav-link">Opslag</a></li>
+                    <li><a href="componenten/moederbord.html" class="nav-link">Moederbord</a></li>
+                    <li><a href="componenten/voeding.html" class="nav-link">Voeding</a></li>
+                    <li><a href="componenten/koeling.html" class="nav-link">Koeling</a></li>
+                    <li><a href="componenten/behuizing.html" class="nav-link">Behuizing</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="page-title">
+                        <span class="code-line">import</span> { <span class="highlight">Componenten</span> } <span class="code-line">from</span> <span class="code-line">'computer-wereld';</span>
+                    </h1>
+                    <p class="page-subtitle">Ontdek de essentiële bouwstenen van elke computer</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="components-overview">
+            <div class="container">
+                <div class="component-grid-detailed">
+                    <div class="component-card-detailed">
+                        <div class="card-header">
+                            <div class="card-icon">⚡</div>
+                            <h2>Processor (CPU)</h2>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-description">De Central Processing Unit is de hersenen van je computer. Hij voert berekeningen uit en verwerkt instructies.</p>
+                            <div class="card-specs">
+                                <h4>Belangrijkste Specificaties:</h4>
+                                <ul>
+                                    <li>Kloksnelheid (GHz)</li>
+                                    <li>Aantal cores en threads</li>
+                                    <li>Cache geheugen</li>
+                                    <li>Vermogensverbruik (TDP)</li>
+                                </ul>
+                            </div>
+                            <div class="card-brands">
+                                <h4>Populaire Merken:</h4>
+                                <span class="brand-tag">Intel</span>
+                                <span class="brand-tag">AMD</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="componenten/cpu.html" class="btn btn-primary">Bekijk Details</a>
+                        </div>
+                    </div>
+
+                    <div class="component-card-detailed">
+                        <div class="card-header">
+                            <div class="card-icon">🎮</div>
+                            <h2>Videokaart (GPU)</h2>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-description">De Graphics Processing Unit is verantwoordelijk voor het renderen van beelden en video's.</p>
+                            <div class="card-specs">
+                                <h4>Belangrijkste Specificaties:</h4>
+                                <ul>
+                                    <li>VRAM geheugen</li>
+                                    <li>CUDA cores / Stream processors</li>
+                                    <li>Kloksnelheid</li>
+                                    <li>Ray tracing en DLSS</li>
+                                </ul>
+                            </div>
+                            <div class="card-brands">
+                                <h4>Populaire Merken:</h4>
+                                <span class="brand-tag">NVIDIA</span>
+                                <span class="brand-tag">AMD</span>
+                                <span class="brand-tag">Intel Arc</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="componenten/gpu.html" class="btn btn-primary">Bekijk Details</a>
+                        </div>
+                    </div>
+
+                    <div class="component-card-detailed">
+                        <div class="card-header">
+                            <div class="card-icon">💾</div>
+                            <h2>Geheugen (RAM)</h2>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-description">Random Access Memory is het snel werkgeheugen waar je computer actieve programma's opslaat.</p>
+                            <div class="card-specs">
+                                <h4>Belangrijkste Specificaties:</h4>
+                                <ul>
+                                    <li>Capaciteit (GB)</li>
+                                    <li>Snelheid (MHz/MT/s)</li>
+                                    <li>Latency (CL)</li>
+                                    <li>Type (DDR4/DDR5)</li>
+                                </ul>
+                            </div>
+                            <div class="card-brands">
+                                <h4>Populaire Merken:</h4>
+                                <span class="brand-tag">Corsair</span>
+                                <span class="brand-tag">G.Skill</span>
+                                <span class="brand-tag">Kingston</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="componenten/ram.html" class="btn btn-primary">Bekijk Details</a>
+                        </div>
+                    </div>
+
+                    <div class="component-card-detailed">
+                        <div class="card-header">
+                            <div class="card-icon">💿</div>
+                            <h2>Opslag</h2>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-description">Opslagapparaten bewaren je bestanden, besturingssysteem en programma's permanent.</p>
+                            <div class="card-specs">
+                                <h4>Belangrijkste Specificaties:</h4>
+                                <ul>
+                                    <li>Capaciteit (GB/TB)</li>
+                                    <li>Lees-/schrijfsnelheid</li>
+                                    <li>Type (SSD/HDD)</li>
+                                    <li>Interface (SATA/NVMe)</li>
+                                </ul>
+                            </div>
+                            <div class="card-brands">
+                                <h4>Populaire Merken:</h4>
+                                <span class="brand-tag">Samsung</span>
+                                <span class="brand-tag">Western Digital</span>
+                                <span class="brand-tag">Crucial</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="componenten/opslag.html" class="btn btn-primary">Bekijk Details</a>
+                        </div>
+                    </div>
+
+                    <div class="component-card-detailed">
+                        <div class="card-header">
+                            <div class="card-icon">🔌</div>
+                            <h2>Moederbord</h2>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-description">Het moederbord is de ruggengraat die alle componenten met elkaar verbindt.</p>
+                            <div class="card-specs">
+                                <h4>Belangrijkste Specificaties:</h4>
+                                <ul>
+                                    <li>Socket type</li>
+                                    <li>Chipset</li>
+                                    <li>Form factor</li>
+                                    <li>Connectiviteit</li>
+                                </ul>
+                            </div>
+                            <div class="card-brands">
+                                <h4>Populaire Merken:</h4>
+                                <span class="brand-tag">ASUS</span>
+                                <span class="brand-tag">MSI</span>
+                                <span class="brand-tag">Gigabyte</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="componenten/moederbord.html" class="btn btn-primary">Bekijk Details</a>
+                        </div>
+                    </div>
+
+                    <div class="component-card-detailed">
+                        <div class="card-header">
+                            <div class="card-icon">⚡</div>
+                            <h2>Voeding (PSU)</h2>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-description">De Power Supply Unit levert stroom aan alle componenten in je computer.</p>
+                            <div class="card-specs">
+                                <h4>Belangrijkste Specificaties:</h4>
+                                <ul>
+                                    <li>Vermogen (Watt)</li>
+                                    <li>Efficiëntie (80+ rating)</li>
+                                    <li>Modulariteit</li>
+                                    <li>Kwaliteit en betrouwbaarheid</li>
+                                </ul>
+                            </div>
+                            <div class="card-brands">
+                                <h4>Populaire Merken:</h4>
+                                <span class="brand-tag">Seasonic</span>
+                                <span class="brand-tag">Corsair</span>
+                                <span class="brand-tag">EVGA</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="componenten/voeding.html" class="btn btn-primary">Bekijk Details</a>
+                        </div>
+                    </div>
+
+                    <div class="component-card-detailed">
+                        <div class="card-header">
+                            <div class="card-icon">❄️</div>
+                            <h2>Koeling</h2>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-description">Koelingssystemen houden je componenten op optimale temperaturen.</p>
+                            <div class="card-specs">
+                                <h4>Belangrijkste Specificaties:</h4>
+                                <ul>
+                                    <li>Type (air/water)</li>
+                                    <li>Koelprestaties</li>
+                                    <li>Geluidsproductie</li>
+                                    <li>Compatibiliteit</li>
+                                </ul>
+                            </div>
+                            <div class="card-brands">
+                                <h4>Populaire Merken:</h4>
+                                <span class="brand-tag">Noctua</span>
+                                <span class="brand-tag">NZXT</span>
+                                <span class="brand-tag">Corsair</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="componenten/koeling.html" class="btn btn-primary">Bekijk Details</a>
+                        </div>
+                    </div>
+
+                    <div class="component-card-detailed">
+                        <div class="card-header">
+                            <div class="card-icon">🖥️</div>
+                            <h2>Behuizing</h2>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-description">De behuizing beschermt je componenten en zorgt voor goede airflow.</p>
+                            <div class="card-specs">
+                                <h4>Belangrijkste Specificaties:</h4>
+                                <ul>
+                                    <li>Form factor</li>
+                                    <li>Airflow design</li>
+                                    <li>Materiaal</li>
+                                    <li>Features en uitbreiding</li>
+                                </ul>
+                            </div>
+                            <div class="card-brands">
+                                <h4>Populaire Merken:</h4>
+                                <span class="brand-tag">Fractal Design</span>
+                                <span class="brand-tag">NZXT</span>
+                                <span class="brand-tag">Lian Li</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="componenten/behuizing.html" class="btn btn-primary">Bekijk Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="build-guide">
+            <div class="container">
+                <h2 class="section-title">Computer Bouwen Gids</h2>
+                <div class="build-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Bepaal je Budget</h3>
+                        <p>Stel een realistisch budget vast voor je nieuwe computer.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Kies je Gebruiksdoel</h3>
+                        <p>Gaming, werk, content creatie of algemeen gebruik?</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Selecteer Componenten</h3>
+                        <p>Kies componenten die bij elkaar passen en je doel ondersteunen.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Controleer Compatibiliteit</h3>
+                        <p>Zorg dat alle componenten met elkaar compatibel zijn.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <h3>Bouw je PC</h3>
+                        <p>Volg de stap-voor-stap handleiding voor het bouwen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>&lt;ComputerWereld/&gt;</h3>
+                    <p>Jouw gids voor computer componenten</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Snelle Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="componenten.html">Componenten</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Componenten</h4>
+                    <ul>
+                        <li><a href="componenten/cpu.html">Processor</a></li>
+                        <li><a href="componenten/gpu.html">Videokaart</a></li>
+                        <li><a href="componenten/ram.html">Geheugen</a></li>
+                        <li><a href="componenten/opslag.html">Opslag</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ComputerWereld. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
