@@ -208,3 +208,177 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Gallery Lightbox Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    
+    // Create lightbox HTML structure
+    lightbox.innerHTML = `
+        <div class="lightbox-content">
+            <button class="lightbox-close">&times;</button>
+            <button class="lightbox-nav lightbox-prev">&lsaquo;</button>
+            <button class="lightbox-nav lightbox-next">&rsaquo;</button>
+            <img src="" alt="" class="lightbox-image">
+            <div class="lightbox-attribution"></div>
+        </div>
+    `;
+    
+    document.body.appendChild(lightbox);
+    
+    const lightboxImage = lightbox.querySelector('.lightbox-image');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
+    const lightboxPrev = lightbox.querySelector('.lightbox-prev');
+    const lightboxNext = lightbox.querySelector('.lightbox-next');
+    
+    let currentImageIndex = 0;
+    const galleryImages = Array.from(galleryItems).map(item => ({
+        src: item.querySelector('.gallery-image').src,
+        alt: item.querySelector('.gallery-image').alt,
+        title: item.querySelector('.gallery-overlay h3').textContent,
+        description: item.querySelector('.gallery-overlay p').textContent,
+        attribution: item.querySelector('.gallery-attribution a')
+    }));
+    
+    // Open lightbox when gallery item is clicked
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
+            currentImageIndex = index;
+            openLightbox();
+        });
+    });
+    
+    function openLightbox() {
+        const currentImage = galleryImages[currentImageIndex];
+        lightboxImage.src = currentImage.src;
+        lightboxImage.alt = currentImage.alt;
+        
+        // Update attribution
+        const attributionDiv = lightbox.querySelector('.lightbox-attribution');
+        if (currentImage.attribution) {
+            attributionDiv.innerHTML = `<a href="${currentImage.attribution.href}" target="_blank" rel="noopener noreferrer" title="${currentImage.attribution.title}">© ${currentImage.attribution.title}</a>`;
+            attributionDiv.style.display = 'block';
+        } else {
+            attributionDiv.style.display = 'none';
+        }
+        
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Update navigation buttons visibility
+        updateNavigationButtons();
+    }
+    
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    function navigateImage(direction) {
+        if (direction === 'next') {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+        } else {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+        }
+        openLightbox();
+    }
+    
+    function updateNavigationButtons() {
+        // Hide navigation buttons if there's only one image
+        if (galleryImages.length <= 1) {
+            lightboxPrev.style.display = 'none';
+            lightboxNext.style.display = 'none';
+        } else {
+            lightboxPrev.style.display = 'flex';
+            lightboxNext.style.display = 'flex';
+        }
+    }
+    
+    // Event listeners
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', () => navigateImage('prev'));
+    lightboxNext.addEventListener('click', () => navigateImage('next'));
+    
+    // Close lightbox when clicking outside the image
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (lightbox.classList.contains('active')) {
+            switch(e.key) {
+                case 'Escape':
+                    closeLightbox();
+                    break;
+                case 'ArrowLeft':
+                    navigateImage('prev');
+                    break;
+                case 'ArrowRight':
+                    navigateImage('next');
+                    break;
+            }
+        }
+    });
+    
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    lightbox.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    lightbox.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                navigateImage('next'); // Swipe left, go to next
+            } else {
+                navigateImage('prev'); // Swipe right, go to previous
+            }
+        }
+    }
+    
+    // Add loading animation for images
+    lightboxImage.addEventListener('load', function() {
+        this.style.opacity = '0';
+        setTimeout(() => {
+            this.style.transition = 'opacity 0.3s ease';
+            this.style.opacity = '1';
+        }, 50);
+    });
+    
+    // Preload next and previous images for smoother navigation
+    function preloadImages() {
+        const prevIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+        const nextIndex = (currentImageIndex + 1) % galleryImages.length;
+        
+        const prevImg = new Image();
+        const nextImg = new Image();
+        
+        prevImg.src = galleryImages[prevIndex].src;
+        nextImg.src = galleryImages[nextIndex].src;
+    }
+    
+    // Initial preload
+    preloadImages();
+    
+    // Update preload when navigating
+    const originalNavigateImage = navigateImage;
+    navigateImage = function(direction) {
+        originalNavigateImage(direction);
+        preloadImages();
+    };
+});
