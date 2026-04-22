@@ -1,20 +1,28 @@
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+// Scroll-based navigation bar hiding functionality
+let lastScrollTop = 0;
+let scrollTimeout;
+const navbar = document.getElementById('navbar');
 
-if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-}
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
+window.addEventListener('scroll', function() {
+    clearTimeout(scrollTimeout);
+    
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Hide navbar when scrolling down, show when scrolling up
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+        // Scrolling down
+        navbar.classList.add('hidden');
+    } else {
+        // Scrolling up or at top
+        navbar.classList.remove('hidden');
+    }
+    
+    lastScrollTop = scrollTop;
+    
+    // Debounce scroll events
+    scrollTimeout = setTimeout(function() {
+        // Optional: Add any additional scroll handling here
+    }, 100);
 });
 
 // Smooth scrolling for anchor links
@@ -31,25 +39,129 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add scroll effect to header
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    if (header) {
-        if (window.scrollY > 100) {
-            header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
-        } else {
-            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+// Add active class to navigation based on current page
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        
+        // Remove active class from all links
+        link.classList.remove('active');
+        
+        // Add active class to current page link
+        if (linkPath === currentPath.split('/').pop() || 
+            (currentPath === '/' && linkPath === 'index.html')) {
+            link.classList.add('active');
         }
+    });
+});
+
+// Matrix rain effect for hero section (optional enhancement)
+function createMatrixRain() {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.style.position = 'absolute';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.opacity = '0.1';
+    
+    const heroSection = document.querySelector('.hero-visual');
+    if (heroSection) {
+        heroSection.appendChild(canvas);
+        
+        canvas.width = heroSection.offsetWidth;
+        canvas.height = heroSection.offsetHeight;
+        
+        const matrix = "01";
+        const matrixArray = matrix.split("");
+        const fontSize = 10;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+        
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+        
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#00ff88';
+            ctx.font = fontSize + 'px monospace';
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        
+        setInterval(draw, 35);
+    }
+}
+
+// Initialize matrix rain effect when page loads
+window.addEventListener('load', function() {
+    createMatrixRain();
+});
+
+// Add typing effect to hero title
+function typeWriter() {
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        heroTitle.style.opacity = '0';
+        setTimeout(() => {
+            heroTitle.style.transition = 'opacity 1s ease-in-out';
+            heroTitle.style.opacity = '1';
+        }, 500);
+    }
+}
+
+// Initialize typing effect
+window.addEventListener('load', typeWriter);
+
+// Add hover effect to component cards
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.component-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+});
+
+// Parallax scrolling effect
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('.hero');
+    
+    if (hero) {
+        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
 });
 
-// Animate elements on scroll
+// Intersection Observer for fade-in animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -58,222 +170,41 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all feature items, cards, and sections
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll(
-        '.component-card, .feature-item, .manufacturer, .info-box, .workflow-step'
-    );
+document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('.component-card, .feature-item');
     
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
+    animatedElements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px)';
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(element);
     });
 });
 
-// Add hover effect to component cards
-document.querySelectorAll('.component-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-10px) scale(1.02)';
-    });
+// Add glitch effect to logo on hover
+document.addEventListener('DOMContentLoaded', function() {
+    const logo = document.querySelector('.logo-text');
     
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0) scale(1)';
-    });
-});
-
-// Search functionality (if needed)
-function createSearchBox() {
-    const searchContainer = document.createElement('div');
-    searchContainer.className = 'search-container';
-    searchContainer.innerHTML = `
-        <input type="text" id="search-input" placeholder="Search components...">
-        <button id="search-btn">Search</button>
-    `;
-    
-    const nav = document.querySelector('.nav-container');
-    if (nav) {
-        nav.appendChild(searchContainer);
-    }
-    
-    // Add search styles
-    const searchStyles = `
-        .search-container {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .search-container input {
-            padding: 0.5rem;
-            border: none;
-            border-radius: 5px;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            placeholder-color: rgba(255,255,255,0.7);
-        }
-        
-        .search-container input::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
-        
-        .search-container button {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 5px;
-            background: rgba(255,255,255,0.3);
-            color: white;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        
-        .search-container button:hover {
-            background: rgba(255,255,255,0.4);
-        }
-    `;
-    
-    const styleSheet = document.createElement('style');
-    styleSheet.textContent = searchStyles;
-    document.head.appendChild(styleSheet);
-}
-
-// Component comparison tool
-function createComparisonTool() {
-    const comparisonData = {
-        cpu: {
-            name: 'CPU',
-            specs: ['Cores', 'Threads', 'Clock Speed', 'Cache', 'TDP'],
-            examples: [
-                { name: 'Intel i5-13600K', cores: 14, threads: 20, clock: '5.1GHz', cache: '24MB', tdp: '125W' },
-                { name: 'AMD Ryzen 5 7600X', cores: 6, threads: 12, clock: '5.3GHz', cache: '38MB', tdp: '105W' }
-            ]
-        },
-        gpu: {
-            name: 'GPU',
-            specs: ['VRAM', 'Clock Speed', 'CUDA Cores', 'TDP', 'Memory Speed'],
-            examples: [
-                { name: 'NVIDIA RTX 4060', vram: '8GB', clock: '2.4GHz', cuda: '3072', tdp: '115W', memory: '17Gbps' },
-                { name: 'AMD RX 7600', vram: '8GB', clock: '2.7GHz', cuda: '2048', tdp: '165W', memory: '18Gbps' }
-            ]
-        }
-    };
-    
-    // This could be expanded to create an interactive comparison table
-    console.log('Comparison data loaded:', comparisonData);
-}
-
-// Theme toggle (dark/light mode)
-function createThemeToggle() {
-    const themeToggle = document.createElement('button');
-    themeToggle.innerHTML = 'Toggle Theme';
-    themeToggle.className = 'theme-toggle';
-    themeToggle.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        padding: 10px 15px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        z-index: 1000;
-        transition: all 0.3s ease;
-    `;
-    
-    document.body.appendChild(themeToggle);
-    
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
-        const isDark = document.body.classList.contains('dark-theme');
-        
-        if (isDark) {
-            // Dark theme styles
-            document.documentElement.style.setProperty('--bg-color', '#1a1a1a');
-            document.documentElement.style.setProperty('--text-color', '#e0e0e0');
-            document.documentElement.style.setProperty('--card-bg', '#2a2a2a');
-        } else {
-            // Light theme styles
-            document.documentElement.style.setProperty('--bg-color', '#f8f9fa');
-            document.documentElement.style.setProperty('--text-color', '#333');
-            document.documentElement.style.setProperty('--card-bg', '#ffffff');
-        }
-    });
-}
-
-// Initialize features when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    // Uncomment to enable features
-    // createSearchBox();
-    // createComparisonTool();
-    // createThemeToggle();
-    
-    console.log('Computer Components Website loaded successfully!');
-});
-
-// Performance optimization - lazy loading images
-function lazyLoadImages() {
-    const images = document.querySelectorAll('img[data-src]');
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                imageObserver.unobserve(img);
-            }
+    if (logo) {
+        logo.addEventListener('mouseenter', function() {
+            this.style.animation = 'glitch 0.3s';
         });
-    });
-    
-    images.forEach(img => imageObserver.observe(img));
-}
-
-// Utility functions
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Responsive navigation handling
-const handleResize = debounce(() => {
-    if (window.innerWidth > 768) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    }
-}, 250);
-
-window.addEventListener('resize', handleResize);
-
-// Add keyboard navigation support
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+        
+        logo.addEventListener('animationend', function() {
+            this.style.animation = '';
+        });
     }
 });
 
-// Print-friendly styles
-window.addEventListener('beforeprint', () => {
-    document.body.classList.add('print-mode');
-});
-
-window.addEventListener('afterprint', () => {
-    document.body.classList.remove('print-mode');
-});
-
-// Analytics placeholder (for future implementation)
-function trackPageView(pageName) {
-    console.log(`Page view: ${pageName}`);
-    // This would integrate with Google Analytics or similar service
-}
-
-// Track page views
-trackPageView(window.location.pathname.split('/').pop() || 'home');
+// Add glitch animation keyframes
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes glitch {
+        0%, 100% { transform: translate(0); }
+        20% { transform: translate(-2px, 2px); }
+        40% { transform: translate(-2px, -2px); }
+        60% { transform: translate(2px, 2px); }
+        80% { transform: translate(2px, -2px); }
+    }
+`;
+document.head.appendChild(style);
