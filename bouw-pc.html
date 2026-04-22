@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Bouwen Gids - Computer Wereld</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">&lt;ComputerWereld/&gt;</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="dropdown">
+                        <a href="componenten.html" class="nav-link">Componenten</a>
+                        <div class="dropdown-menu">
+                            <a href="componenten/cpu.html" class="dropdown-link">Processor (CPU)</a>
+                            <a href="componenten/gpu.html" class="dropdown-link">Videokaart (GPU)</a>
+                            <a href="componenten/ram.html" class="dropdown-link">Geheugen (RAM)</a>
+                            <a href="componenten/opslag.html" class="dropdown-link">Opslag</a>
+                            <a href="componenten/moederbord.html" class="dropdown-link">Moederbord</a>
+                            <a href="componenten/voeding.html" class="dropdown-link">Voeding (PSU)</a>
+                            <a href="componenten/koeling.html" class="dropdown-link">Koeling</a>
+                            <a href="componenten/behuizing.html" class="dropdown-link">Behuizing</a>
+                        </div>
+                    </li>
+                    <li><a href="bouw-pc.html" class="nav-link active">PC Bouwen</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">PC Bouwen Gids</h1>
+                <p class="page-subtitle">Stap voor stap je eigen computer bouwen - van beginner tot expert</p>
+            </div>
+        </section>
+
+        <section class="build-guide">
+            <div class="container">
+                <div class="intro-section">
+                    <h2>Welkom bij de PC Bouwen Gids</h2>
+                    <p>Het bouwen van je eigen computer kan ontmoedigend lijken, maar met de juiste begeiding is het een lonende ervaring. Deze gids leidt je door elke stap van het proces, van voorbereiding tot de eerste opstart.</p>
+                    
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/watch?v=s1fxZ-VWs2U"
+                            title="PC Bouwen Video Gids"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen
+                            class="video-embed">
+                        </iframe>
+                    </div>
+                    
+                    <div class="safety-warning">
+                        <h3>Belangrijke Veiligheidstips</h3>
+                        <ul>
+                            <li>Werk altijd op een antistatische ondergrond</li>
+                            <li>Aarde jezelf regelmatig door aan een metalen object te raken</li>
+                            <li>Nooit in de buurt van vloeistoffen werken</li>
+                            <li>Gebruik alleen het juiste gereedschap</li>
+                            <li>Lees altijd de handleiding van je componenten</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="build-timeline">
+                    <h2>Overzicht van de Stappen</h2>
+                    <div class="timeline-progress">
+                        <div class="progress-bar">
+                            <a href="#stap-1" class="progress-step completed" data-step="1">Voorbereiding</a>
+                            <a href="#stap-2" class="progress-step" data-step="2">CPU Installatie</a>
+                            <a href="#stap-3" class="progress-step" data-step="3">RAM Installatie</a>
+                            <a href="#stap-4" class="progress-step" data-step="4">Moederbord Plaatsen</a>
+                            <a href="#stap-5" class="progress-step" data-step="5">Opslag Installatie</a>
+                            <a href="#stap-6" class="progress-step" data-step="6">GPU Installatie</a>
+                            <a href="#stap-7" class="progress-step" data-step="7">Voeding Plaatsen</a>
+                            <a href="#stap-8" class="progress-step" data-step="8">Kabelmanagement</a>
+                            <a href="#stap-9" class="progress-step" data-step="9">Eerste Opstart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="build-steps">
+                    <!-- Stap 1: Voorbereiding -->
+                    <div class="step-section" id="stap-1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <h3>Voorbereiding</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-description">
+                                <h4>Wat heb je nodig?</h4>
+                                <div class="tools-grid">
+                                    <div class="tool-item">
+                                        <div class="tool-icon"> Phillips </div>
+                                        <h5>Kruiskopschroevendraaier</h5>
+                                        <p>Magnetische schroevendraaier werkt het beste</p>
+                                    </div>
+                                    <div class="tool-item">
+                                        <div class="tool-icon"> Pliers </div>
+                                        <h5>Tang (optioneel)</h5>
+                                        <p>Voor kabelmanagement en zip-ties</p>
+                                    </div>
+                                    <div class="tool-item">
+                                        <div class="tool-icon"> Light </div>
+                                        <h5>Goede Verlichting</h5>
+                                        <p>Zorg dat je goed kunt zien wat je doet</p>
+                                    </div>
+                                    <div class="tool-item">
+                                        <div class="tool-icon"> Antistatic </div>
+                                        <h5>Antistatische Band</h5>
+                                        <p>Essentieel voor componentveiligheid</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="step-instructions">
+                                <h4>Voorbereidingsstappen</h4>
+                                <ol>
+                                    <li><strong>Werkplek Voorbereiden:</strong> Kies een grote, schone, goed verlichte tafel</li>
+                                    <li><strong>Componenten Controleren:</strong> Verpak alle componenten uit en controleer op schade</li>
+                                    <li><strong>Handleidingen Lezen:</strong> Lees de handleiding van moederbord en case</li>
+                                    <li><strong>Antistatische Voorzorgsmaatregelen:</strong> Draag een antistatische band of aarde jezelf regelmatig</li>
+                                    <li><strong>Organisatie:</strong> Leg schroeven en kleine onderdelen in georganiseerde bakjes</li>
+                                </ol>
+                            </div>
+
+                            <div class="pro-tip">
+                                <h4>Pro Tip</h4>
+                                <p>Maak foto's van elke stap met je telefoon. Dit helpt als je later iets niet meer weet of terug moet gaan naar een vorige stap.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stap 2: CPU Installatie -->
+                    <div class="step-section" id="stap-2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <h3>CPU Installatie</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-description">
+                                <h4>Processor Plaatsen</h4>
+                                <p>Dit is de meest delicate stap. Wees voorzichtig en neem je tijd.</p>
+                            </div>
+                            
+                            <div class="step-instructions">
+                                <h4>Installatieproces</h4>
+                                <ol>
+                                    <li><strong>Socket Vrijmaken:</strong> Open de CPU-socket door de hendel omhoog te tillen</li>
+                                    <li><strong>CPU Oriënteren:</strong> Zoek de markering op de CPU en socket (meestal een gouden driehoek)</li>
+                                    <li><strong>CPU Plaatsen:</strong> Laat de CPU voorzichtig in de socket vallen. Druk nooit!</li>
+                                    <li><strong>Controleren:</strong> Controleer of de CPU perfect in de socket ligt</li>
+                                    <li><strong>Hendel Sluiten:</strong> Sluit de hendel voorzichtig maar stevig</li>
+                                </ol>
+                            </div>
+
+                            <div class="warning-box">
+                                <h4>Waarschuwing</h4>
+                                <p>Buig de pinnen van de CPU nooit! Dit kan permanente schade veroorzaken. Moderne CPU's hebben geen pinnen (LGA), maar wees toch voorzichtig.</p>
+                            </div>
+
+                            <div class="step-image-placeholder">
+                                <p>Diagram: CPU installatie met oriëntatiemarkeringen</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stap 3: RAM Installatie -->
+                    <div class="step-section" id="stap-3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <h3>RAM Installatie</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-description">
+                                <h4>Geheugenmodules Plaatsen</h4>
+                                <p>RAM installatie is relatief eenvoudig maar vereist precisie.</p>
+                            </div>
+                            
+                            <div class="step-instructions">
+                                <h4>Installatieproces</h4>
+                                <ol>
+                                    <li><strong>Sloten Openen:</strong> Open de sloten aan beide zijden van het RAM-slot</li>
+                                    <li><strong>Oriënteren:</strong> RAM heeft een asymmetrische uitsnede - deze bepaalt de richting</li>
+                                    <li><strong>Plaatsen:</strong> Druk het RAM-module stevig in het slot totdat de sloten klikken</li>
+                                    <li><strong>Dubbele Modules:</strong> Voor dual-channel: gebruik sloten A2 en B2 (meestal 2e en 4e slot)</li>
+                                    <li><strong>Controleren:</strong> Controleer of beide sloten volledig zijn dichtgeklikt</li>
+                                </ol>
+                            </div>
+
+                            <div class="pro-tip">
+                                <h4>Pro Tip</h4>
+                                <p>Installeer RAM vóór het moederbord in de case te plaatsen. Dit geeft veel meer ruimte om te werken.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stap 4: Moederbord Plaatsen -->
+                    <div class="step-section" id="stap-4">
+                        <div class="step-header">
+                            <div class="step-number">4</div>
+                            <h3>Moederbord Plaatsen</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-description">
+                                <h4>Moederbord in de Case Installeren</h4>
+                                <p>Nu komt het moederbord in de behuizing.</p>
+                            </div>
+                            
+                            <div class="step-instructions">
+                                <h4>Installatieproces</h4>
+                                <ol>
+                                    <li><strong>I/O Shield Plaatsen:</strong> Klik het I/O shield in de opening van de case</li>
+                                    <li><strong>Standoffs Plaatsen:</strong> Draai de brass standoffs in de case (volgens handleiding)</li>
+                                    <li><strong>Moederbord Positioneren:</strong> Plaats het moederbord voorzichtig bovenop de standoffs</li>
+                                    <li><strong>Schroeven Vastdraaien:</strong> Draai alle schroeven vast, maar niet te strak</li>
+                                    <li><strong>Controleren:</strong> Zorg dat het moederbord niet de case raakt</li>
+                                </ol>
+                            </div>
+
+                            <div class="warning-box">
+                                <h4>Waarschuwing</h4>
+                                <p>Zorg dat het moederbord nergens de metalen case raakt. Dit kan kortsluiting veroorzaken en je systeem beschadigen.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stap 5: Opslag Installatie -->
+                    <div class="step-section" id="stap-5">
+                        <div class="step-header">
+                            <div class="step-number">5</div>
+                            <h3>Opslag Installatie</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-description">
+                                <h4>SSD en HDD Plaatsen</h4>
+                                <p>Installatie van opslagdrives varieert per type.</p>
+                            </div>
+                            
+                            <div class="step-instructions">
+                                <h4>M.2 SSD Installatie</h4>
+                                <ol>
+                                    <li><strong>M.2 Slot Vinden:</strong> Zoek het M.2 slot op het moederbord</li>
+                                    <li><strong>Schroef Verwijderen:</strong> Verwijder de kleine schroef van de houder</li>
+                                    <li><strong>SSD Invoegen:</strong> Schuif de M.2 SSD in het slot onder een hoek van 30°</li>
+                                    <li><strong>Vastzetten:</strong> Druk de SSD plat en draai de schroef vast</li>
+                                </ol>
+
+                                <h4>2.5" SSD/HDD Installatie</h4>
+                                <ol>
+                                    <li><strong>Bay Vinden:</strong> Zoek een 2.5" bay in de case</li>
+                                    <li><strong>Drive Plaatsen:</strong> Schuif de drive in de bay of gebruik een bracket</li>
+                                    <li><strong>Vastdraaien:</strong> Draai de schroeven vast om de drive te beveiligen</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stap 6: GPU Installatie -->
+                    <div class="step-section" id="stap-6">
+                        <div class="step-header">
+                            <div class="step-number">6</div>
+                            <h3>GPU Installatie</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-description">
+                                <h4>Videokaart Plaatsen</h4>
+                                <p>De GPU is meestal het grootste en zwaarste component.</p>
+                            </div>
+                            
+                            <div class="step-instructions">
+                                <h4>Installatieproces</h4>
+                                <ol>
+                                    <li><strong>Sloten Verwijderen:</strong> Verwijder de PCIe slot covers achterop de case</li>
+                                    <li><strong>Slot Openen:</strong> Open het PCIe x16 slot slotje op het moederbord</li>
+                                    <li><strong>GPU Plaatsen:</strong> Schuif de GPU stevig in het slot totdat hij klikken</li>
+                                    <li><strong>Vastzetten:</strong> Draai de schroeven vast om de GPU aan de case te bevestigen</li>
+                                    <li><strong>Stroom Verbinden:</strong> Sluit de PCIe stroomkabels aan (indien nodig)</li>
+                                </ol>
+                            </div>
+
+                            <div class="pro-tip">
+                                <h4>Pro Tip</h4>
+                                <p>Sommige moderne GPU's hebben een bracket voor verticale installatie. Overweeg dit als je case dit ondersteunt voor een betere uitstraling.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stap 7: Voeding Plaatsen -->
+                    <div class="step-section" id="stap-7">
+                        <div class="step-header">
+                            <div class="step-number">7</div>
+                            <h3>Voeding Plaatsen</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-description">
+                                <h4>PSU Installeren en Kabels Voorbereiden</h4>
+                                <p>De voeding voorziet je systeem van stroom.</p>
+                            </div>
+                            
+                            <div class="step-instructions">
+                                <h4>Installatieproces</h4>
+                                <ol>
+                                    <li><strong>Oriënteren:</strong> Bepaal de juiste oriëntatie (fan naar beneden/boven)</li>
+                                    <li><strong>PSU Plaatsen:</strong> Schuif de PSU in de PSU bay</li>
+                                    <li><strong>Vastdraaien:</strong> Draai de 4 schroeven aan de achterkant vast</li>
+                                    <li><strong>Kabels Organiseren:</strong> Sorteer alle kabels die je nodig hebt</li>
+                                    <li><strong>Ongebruikte Kabels:</strong> Berg overbodige kabels op voor later</li>
+                                </ol>
+                            </div>
+
+                            <div class="warning-box">
+                                <h4>Waarschuwing</h4>
+                                <p>Sluit de voeding nog niet aan op het stopcontact! Wacht tot de volledige installatie is voltooid.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stap 8: Kabelmanagement -->
+                    <div class="step-section" id="stap-8">
+                        <div class="step-header">
+                            <div class="step-number">8</div>
+                            <h3>Kabelmanagement</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-description">
+                                <h4>Alle Kabels Aansluiten en Organiseren</h4>
+                                <p>Dit is vaak de meest tijdrovende maar cruciale stap.</p>
+                            </div>
+                            
+                            <div class="step-instructions">
+                                <h4>Kabels Aansluiten</h4>
+                                <ol>
+                                    <li><strong>24-pin Moederbord:</strong> Grote connector rechts van het moederbord</li>
+                                    <li><strong>8-pin CPU:</strong> Bovenaan het moederbord (meestal 2x4-pin)</li>
+                                    <li><strong>GPU Stroom:</strong> PCIe kabels aan de rechterkant van de GPU</li>
+                                    <li><strong>Opslag Kabels:</strong> SATA kabels naar SSD/HDD</li>
+                                    <li><strong>Case Connectors:</strong> Power/reset LED's (volgens handleiding)</li>
+                                    <li><strong>Case Fans:</strong> Fan headers op het moederbord</li>
+                                </ol>
+
+                                <h4>Kabelmanagement Tips</h4>
+                                <ul>
+                                    <li>Gebruik de routing gaten in de case</li>
+                                    <li>Bundel gelijksoortige kabels samen</li>
+                                    <li>Gebruik zip-ties of velcro straps</li>
+                                    <li>Verberg kabels achter het moederbord tray</li>
+                                    <li>Zorg dat kabels niet in de fans komen</li>
+                                </ul>
+                            </div>
+
+                            <div class="pro-tip">
+                                <h4>Pro Tip</h4>
+                                <p>Begin met de moederbord kabels, werk dan naar de componenten. Dit maakt het makkelijker om te zien welke kabels je nog nodig hebt.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stap 9: Eerste Opstart -->
+                    <div class="step-section" id="stap-9">
+                        <div class="step-header">
+                            <div class="step-number">9</div>
+                            <h3>Eerste Opstart</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-description">
+                                <h4>Testen en Configureren</h4>
+                                <p>Het moment van de waarheid - laten we zien of alles werkt!</p>
+                            </div>
+                            
+                            <div class="step-instructions">
+                                <h4>Laatste Controle</h4>
+                                <ol>
+                                    <li><strong>Alle Connecties Controleren:</strong> Dubbel-check alle kabelverbindingen</li>
+                                    <li><strong>Geen Losse Onderdelen:</strong> Zorg dat er geen schroeven of tools in de case liggen</li>
+                                    <li><strong>Case Panel Sluiten:</strong> Sluit de zijkant van de case</li>
+                                    <li><strong>Monitor Verbinden:</strong> Sluit de monitor aan op de GPU (niet moederbord)</li>
+                                    <li><strong>Toetsenbord/Muis:</strong> Sluit USB apparaten aan</li>
+                                </ol>
+
+                                <h4>Opstarten</h4>
+                                <ol>
+                                    <li><strong>Stroom Aansluiten:</strong> Sluit de voeding aan op het stopcontact</li>
+                                    <li><strong>PSU Schakelaar:</strong> Zet de schakelaar op de PSU aan (I)</li>
+                                    <li><strong>Power Knop:</strong> Druk op de power knop van de case</li>
+                                    <li><strong>Bios/UEFI:</strong> Als alles werkt, ga naar de BIOS/UEFI (meestal DEL of F2)</li>
+                                </ol>
+                            </div>
+
+                            <div class="troubleshooting-section">
+                                <h4>Veelvoorkomende Problemen</h4>
+                                <div class="problem-grid">
+                                    <div class="problem-item">
+                                        <h5>Geen Beeld</h5>
+                                        <p>Controleer of de monitor op de GPU is aangesloten, niet het moederbord</p>
+                                    </div>
+                                    <div class="problem-item">
+                                        <h5>System Beeps</h5>
+                                        <p>Luister naar het beep patroon - dit geeft aan wat er mis is</p>
+                                    </div>
+                                    <div class="problem-item">
+                                        <h5>Fans Draaien Niet</h5>
+                                        <p>Controleer fan kabels en power connecties</p>
+                                    </div>
+                                    <div class="problem-item">
+                                        <h5>System Start Niet</h5>
+                                        <p>Controleer of alle kabels goed zijn aangesloten</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="success-box">
+                                <h4>Gefeliciteerd!</h4>
+                                <p>Je hebt je eigen computer gebouwd! Nu kun je het besturingssysteem installeren en je nieuwe systeem configureren.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="next-steps">
+                    <h2>Volgende Stappen</h2>
+                    <div class="steps-grid">
+                        <div class="step-card">
+                            <div class="step-icon"> OS </div>
+                            <h3>Besturingssysteem Installatie</h3>
+                            <p>Installeer Windows, Linux of je favoriete besturingssysteem</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-icon"> Drivers </div>
+                            <h3>Drivers Installeren</h3>
+                            <p>Installeer de laatste drivers voor al je componenten</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-icon"> Test </div>
+                            <h3>System Testen</h3>
+                            <p>Voer stress tests uit om de stabiliteit te verifiëren</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-icon"> Optimize </div>
+                            <h3>Optimaliseren</h3>
+                            <p>Tweak je systeem voor maximale prestaties</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>&lt;ComputerWereld/&gt;</h3>
+                    <p>Jouw gids voor computer componenten</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Snelle Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="componenten.html">Componenten</a></li>
+                        <li><a href="bouw-pc.html">PC Bouwen</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Componenten</h4>
+                    <ul>
+                        <li><a href="componenten/cpu.html">Processor</a></li>
+                        <li><a href="componenten/gpu.html">Videokaart</a></li>
+                        <li><a href="componenten/ram.html">Geheugen</a></li>
+                        <li><a href="componenten/opslag.html">Opslag</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ComputerWereld. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
