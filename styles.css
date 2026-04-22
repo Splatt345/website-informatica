@@ -130,6 +130,7 @@ body {
     background: var(--gradient-cyber);
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .hero::before {
@@ -152,7 +153,8 @@ body {
 
 .hero-content {
     max-width: 600px;
-    z-index: 1;
+    z-index: 2;
+    position: relative;
 }
 
 .hero-title {
@@ -222,7 +224,7 @@ body {
 
 .hero-visual {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .code-matrix {
@@ -260,6 +262,8 @@ body {
 /* Section Styling */
 section {
     padding: 4rem 0;
+    position: relative;
+    z-index: 2;
 }
 
 .section-title {
@@ -275,6 +279,8 @@ section {
 /* Overview Section */
 .overview {
     background: var(--secondary-bg);
+    position: relative;
+    z-index: 10;
 }
 
 .component-grid {
@@ -292,6 +298,7 @@ section {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    z-index: 3;
 }
 
 .component-card::before {
@@ -314,6 +321,7 @@ section {
     transform: translateY(-5px);
     box-shadow: var(--shadow-neon);
     border-color: var(--code-blue);
+    z-index: 4;
 }
 
 .card-icon {
@@ -350,6 +358,8 @@ section {
 /* Features Section */
 .features {
     background: var(--primary-bg);
+    position: relative;
+    z-index: 10;
 }
 
 .feature-grid {
