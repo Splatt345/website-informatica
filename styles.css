@@ -498,7 +498,7 @@ footer {
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
     margin-top: 3rem;
 }
 
@@ -510,6 +510,8 @@ footer {
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
     cursor: pointer;
+    margin: 0;
+    padding: 0;
 }
 
 .gallery-item:hover {
@@ -520,9 +522,10 @@ footer {
 
 .gallery-image {
     width: 100%;
-    height: 250px;
+    height: 200px;
     object-fit: cover;
     transition: transform 0.3s ease;
+    display: block;
 }
 
 .gallery-item:hover .gallery-image {
@@ -739,6 +742,169 @@ footer {
     text-shadow: 0 0 5px var(--code-blue);
 }
 
+/* Resources Page Styling */
+.resources-section {
+    background: var(--primary-bg);
+    padding: 4rem 0;
+    position: relative;
+    z-index: 10;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.resource-category {
+    background: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.resource-category:hover {
+    border-color: var(--code-blue);
+    box-shadow: var(--shadow-neon);
+    transform: translateY(-5px);
+}
+
+.category-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--code-blue);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px var(--code-blue);
+    border-bottom: 2px solid var(--code-blue);
+    padding-bottom: 0.5rem;
+}
+
+.resource-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.resource-item {
+    background: var(--tertiary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.resource-item:hover {
+    border-color: var(--code-blue);
+    transform: translateX(5px);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+}
+
+.resource-item h3 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--code-blue);
+    margin-bottom: 0.75rem;
+}
+
+.resource-item p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.resource-link {
+    color: var(--code-blue);
+    text-decoration: none;
+    font-weight: 700;
+    font-family: 'Share Tech Mono', monospace;
+    transition: all 0.3s ease;
+    display: inline-block;
+    background: var(--tertiary-bg);
+    border: 2px solid var(--code-blue);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+}
+
+.resource-link:hover {
+    color: var(--code-blue-light);
+    background: var(--code-blue);
+    color: var(--primary-bg);
+    text-shadow: 0 0 5px var(--code-blue-light);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+/* Map Section Styling */
+.map-section {
+    background: var(--primary-bg);
+    padding: 4rem 0;
+    position: relative;
+    z-index: 10;
+}
+
+.map-description {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.map-container {
+    background: var(--secondary-bg);
+    border: 2px solid var(--code-blue);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: var(--shadow-neon);
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.map-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--code-blue), transparent);
+    animation: scan 3s linear infinite;
+}
+
+.map-iframe {
+    border-radius: 8px;
+    filter: grayscale(20%) contrast(110%);
+    transition: filter 0.3s ease;
+}
+
+.map-container:hover .map-iframe {
+    filter: grayscale(0%) contrast(100%);
+}
+
+.map-info {
+    background: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.map-note {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-container {
@@ -780,6 +946,11 @@ footer {
     }
     
     .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .resources-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
