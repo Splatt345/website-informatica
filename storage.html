@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Devices</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <h1 class="logo">Computer Components</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cpu.html">CPU</a></li>
+                    <li><a href="gpu.html">GPU</a></li>
+                    <li><a href="ram.html">RAM</a></li>
+                    <li><a href="storage.html" class="active">Storage</a></li>
+                    <li><a href="motherboard.html">Motherboard</a></li>
+                    <li><a href="psu.html">Power Supply</a></li>
+                    <li><a href="cooling.html">Cooling</a></li>
+                    <li><a href="case.html">Case</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="component-hero">
+            <div class="container">
+                <h1>Storage Devices</h1>
+                <p class="subtitle">Your computer's long-term memory</p>
+            </div>
+        </section>
+
+        <section class="component-content">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="main-content">
+                        <h2>What is Computer Storage?</h2>
+                        <p>Computer storage refers to the hardware and software components used to store digital data permanently. Unlike RAM, storage devices retain data even when the computer is powered off. Storage is essential for installing operating systems, applications, and saving personal files.</p>
+                        
+                        <h2>Types of Storage Devices</h2>
+                        <div class="storage-types">
+                            <div class="storage-type">
+                                <h3>Solid State Drives (SSD)</h3>
+                                <p>Modern storage devices that use flash memory chips. No moving parts, extremely fast, and more reliable than traditional drives.</p>
+                                <div class="storage-subtypes">
+                                    <h4>NVMe SSDs</h4>
+                                    <p>Fastest type, connects via PCIe interface. Ideal for operating system and frequently used applications.</p>
+                                    <h4>SATA SSDs</h4>
+                                    <p>Slower than NVMe but much faster than HDDs. Great balance of speed and cost.</p>
+                                </div>
+                                <ul>
+                                    <li>Read speeds: 500MB/s - 7,000MB/s</li>
+                                    <li>No moving parts</li>
+                                    <li>Lower power consumption</li>
+                                    <li>More expensive per GB</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="storage-type">
+                                <h3>Hard Disk Drives (HDD)</h3>
+                                <p>Traditional storage devices that use spinning magnetic disks and mechanical read/write heads.</p>
+                                <ul>
+                                    <li>Read speeds: 80-160MB/s</li>
+                                    <li>Moving parts</li>
+                                    <li>Higher power consumption</li>
+                                    <li>Cheapest per GB</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="storage-type">
+                                <h3>Hybrid Drives (SSHD)</h3>
+                                <p>Combination of HDD and SSD cache. Automatically moves frequently accessed data to SSD portion for faster access.</p>
+                                <ul>
+                                    <li>Good compromise between speed and capacity</li>
+                                    <li>Limited SSD cache (usually 8-32GB)</li>
+                                    <li>Automated caching</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <h2>Storage Interfaces</h2>
+                        <div class="interfaces">
+                            <div class="interface">
+                                <h3>SATA III</h3>
+                                <p>Most common interface for both SSDs and HDDs. Maximum speed of 600MB/s.</p>
+                            </div>
+                            <div class="interface">
+                                <h3>NVMe (PCIe)</h3>
+                                <p>Modern interface for high-speed SSDs. Uses PCIe lanes for much faster data transfer.</p>
+                            </div>
+                            <div class="interface">
+                                <h3>M.2</h3>
+                                <p>Physical form factor that can support both SATA and NVMe drives. Compact and popular.</p>
+                            </div>
+                        </div>
+
+                        <h2>Storage Configuration</h2>
+                        <div class="configurations">
+                            <div class="config">
+                                <h3>Single Drive</h3>
+                                <p>One storage device for everything. Simple but may not be optimal for performance.</p>
+                            </div>
+                            <div class="config">
+                                <h3>Dual Drive (SSD + HDD)</h3>
+                                <p>SSD for OS and applications, HDD for mass storage. Best balance of speed and capacity.</p>
+                            </div>
+                            <div class="config">
+                                <h3>RAID Arrays</h3>
+                                <p>Multiple drives working together for performance, redundancy, or both.</p>
+                                <ul>
+                                    <li>RAID 0: Performance (no redundancy)</li>
+                                    <li>RAID 1: Mirroring (redundancy)</li>
+                                    <li>RAID 5/6: Parity (balance)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h2>Storage Capacity Guidelines</h2>
+                        <div class="capacity-guide">
+                            <div class="capacity-level">
+                                <h3>256GB</h3>
+                                <p>Basic use, minimal applications, cloud storage reliance</p>
+                            </div>
+                            <div class="capacity-level">
+                                <h3>512GB</h3>
+                                <p>Standard use, moderate applications, some local file storage</p>
+                            </div>
+                            <div class="capacity-level">
+                                <h3>1TB</h3>
+                                <p>Power users, gaming, content creation, good balance</p>
+                            </div>
+                            <div class="capacity-level">
+                                <h3>2TB+</h3>
+                                <p>Heavy content creation, large game libraries, professional use</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar">
+                        <div class="info-box">
+                            <h3>Quick Facts</h3>
+                            <ul>
+                                <li>SSDs are 10-100x faster than HDDs</li>
+                                <li>HDDs use magnetic platters</li>
+                                <li>SSDs have limited write cycles</li>
+                                <li>Storage speed affects boot time</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-box">
+                            <h3>Choosing Storage</h3>
+                            <ul>
+                                <li>Consider speed vs capacity needs</li>
+                                <li>Check motherboard interface support</li>
+                                <li>Plan for future growth</li>
+                                <li>Consider backup solutions</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-box">
+                            <h3>Storage Brands</h3>
+                            <ul>
+                                <li>Samsung - Premium SSDs</li>
+                                <li>Western Digital - HDDs and SSDs</li>
+                                <li>Seagate - HDD specialist</li>
+                                <li>Crucial - Value SSDs</li>
+                                <li>Kingston - Budget storage</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-box">
+                            <h3>Form Factors</h3>
+                            <ul>
+                                <li>2.5" - Most common for laptops</li>
+                                <li>3.5" - Standard for desktop HDDs</li>
+                                <li>M.2 - Compact SSDs</li>
+                                <li>mSATA - Older compact format</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Computer Components Guide. Educational resource for learning about computer hardware.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
