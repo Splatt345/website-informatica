@@ -1061,6 +1061,8 @@ footer {
     overflow: hidden;
     transition: all 0.3s ease;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .component-card-detailed::before {
@@ -1107,6 +1109,7 @@ footer {
 
 .card-content {
     padding: 1.5rem;
+    flex: 1;
 }
 
 .card-description {
@@ -1173,9 +1176,12 @@ footer {
 }
 
 .card-footer {
-    padding: 1rem 1.5rem;
+    padding: 1.5rem;
     background: var(--tertiary-bg);
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Build Guide */
