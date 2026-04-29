@@ -1276,6 +1276,28 @@ footer {
 .detail-header {
     text-align: center;
     margin-bottom: 3rem;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    padding: 4rem 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.detail-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.detail-header > * {
+    position: relative;
+    z-index: 2;
 }
 
 .detail-title {
@@ -1291,6 +1313,29 @@ footer {
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
+}
+
+.attribution-box {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    z-index: 3;
+}
+
+.attribution-box a {
+    color: var(--code-blue);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.attribution-box a:hover {
+    text-decoration: underline;
 }
 
 .detail-content {
